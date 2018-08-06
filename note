@@ -1,0 +1,40 @@
+一、路由系统  URL
+
+二：视图 views
+    1.
+        request.GET
+        request.POST
+        request.FILES
+    2.
+        # checkbox 等多选的内容
+        request.POST.getList()
+    3.
+        # 上传文件 form 标签做特殊设置 enctype="multipart/form-data"
+        obj = request.FILES.get('filename')
+        file_path = os.path.join('upload',obj.name)
+        print(file_path)
+        f = open(obj.name,mode='wb)
+        for item in obj.chunks():
+            f.write(item)
+        f.close()
+    4.  FBV  & CBV
+        FBV: function   base    view
+        CBV: class  base    view
+
+        FBV:
+            urls.py
+                index   -->     view.函数名
+            view.py
+                def 函数名(request):
+
+        CBV
+            urls.py
+                index   -->     view.classname.as_()
+四： ORM操作
+    select * from tb where id>1
+    对应关系
+    models.tb.objects.filter(id_gt=1)
+    id=1
+    models.tb.objects.filter(id=1)
+    id>1
+    models.tb.objects.filter(id_lt=1)
