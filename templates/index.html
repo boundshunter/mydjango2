@@ -5,6 +5,28 @@
     <title>Title</title>
 </head>
 <body>
+    <ul>
+        {% for k in user_dict.keys %}
+            <li>{{ k }}</li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for k, v in user_dict.items %}
+{#            <li>{{ k }}-{{ row }}</li>#}
+            <li>
+{#                <a href="/detail/{{ k }}.html">{{ v.name }}</a>#}
+{#                点击，跳转到detail-xx.html#}
+                <a target="_blank" href="/detail-{{ k }}.html">{{ v.name }}</a>
+            </li>
 
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for val in user_dict.values %}
+
+            <li>{{ val }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

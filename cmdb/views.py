@@ -4,11 +4,33 @@ from django.shortcuts import redirect
 # Create your views here.
 import os
 
+# USER_DICT = {
+#     'k1':'root1',
+#     'k2':'root2',
+#     'k3':'root3',
+#     'k4':'root4',
+#     'k5':'root5',
+# }
+
+USER_DICT = {
+    '1':{'name':'root1', 'email':'root1@dongao.com'},
+    '2':{'name':'root2', 'email':'root2@dongao.com'},
+    '3':{'name':'root3', 'email':'root3@dongao.com'},
+    '4':{'name':'root4', 'email':'root4@dongao.com'},
+    '5':{'name':'root5', 'email':'root5@dongao.com'},
+}
+
+
 def index(request):
-    return HttpResponse('Index-page')
+    # return HttpResponse('Index-page')
+    return render(request,'index.html',{'user_dict': USER_DICT})
 
-
-
+def detail(request,nid):
+    return HttpResponse(nid)
+#       动态url方式
+#     nid = request.GET.get('nid')
+#     detail_info = USER_DICT[nid]
+#     return render(request, 'detail.html', {'detail_info': detail_info})
 
 def login(request):
     if request.method == "GET":

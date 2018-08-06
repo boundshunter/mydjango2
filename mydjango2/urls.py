@@ -22,5 +22,9 @@ urlpatterns = [
     path('login/', views.login),
     path('index/', views.index),
     path('home/', views.Home.as_view()),
+    path('detail-(\d+).html', views.detail),
+    # path('detail/', views.detail)
+
 
 ]
+
