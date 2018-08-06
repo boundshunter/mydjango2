@@ -29,7 +29,7 @@
 
         CBV
             urls.py
-                index   -->     view.classname.as_()
+                index   -->     view.classname.as_view()
 四： ORM操作
     select * from tb where id>1
     对应关系
