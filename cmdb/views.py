@@ -25,12 +25,15 @@ def index(request):
     # return HttpResponse('Index-page')
     return render(request,'index.html',{'user_dict': USER_DICT})
 
-def detail(request,nid):
-    return HttpResponse(nid)
+
+def detail(request, nid):
+    return HttpResponse("aaa")
+
+
 #       动态url方式
 #     nid = request.GET.get('nid')
-#     detail_info = USER_DICT[nid]
-#     return render(request, 'detail.html', {'detail_info': detail_info})
+     detail_info = USER_DICT[nid]
+     return render(request, 'detail.html', {'detail_info': detail_info})
 
 def login(request):
     if request.method == "GET":

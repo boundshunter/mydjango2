@@ -14,7 +14,7 @@
         {% for k, v in user_dict.items %}
 {#            <li>{{ k }}-{{ row }}</li>#}
             <li>
-{#                <a href="/detail/{{ k }}.html">{{ v.name }}</a>#}
+{#                <a href="/detail/?nid={{ k }}">{{ v.name }}</a>#}
 {#                点击，跳转到detail-xx.html#}
                 <a target="_blank" href="/detail-{{ k }}.html">{{ v.name }}</a>
             </li>

@@ -1,5 +1,47 @@
 一、路由系统  URL
-    1.
+    1.url(r'^index/', views.index),  url(r'^index/', views.Index.as_view()),
+    2.url(r'^detail-(\d+).html', views.detail),
+    3.url(r'^detail-(?P<nid>\d+)-(?P<uid>\d+).html', views.detail)
+
+            def detail(request, *args, **kwargs):
+                pass
+            def func(request,nid,uid):
+                pass
+            def func(request,**kwargs):
+                kwarts = {'nid':1,'uid':3}
+
+            def func(request,*args, **kwargs):
+                args=(2,9)
+    4.name
+      对URL路由关系进行命名：**** 以后根据此名称生成想要的url *****
+
+      url(r'^auv/', views.index, name='i1')
+      url(r'^yug/(\d+)', views.index, name='i2')
+      url(r'^buy/(?P<pid>\d+)/((?P<nid>\d+)/', views.index, name='i3')
+          form表单中 action = {% url "i1" %}
+          form表单中 action = {% url "i2" num %}
+          form表单中 action = {% url "i2" 3 %} 一个\d+ 一个数字，多个\d+多个数字 空格分离
+          form表单中 action = {% url "i2" 3 %}
+
+
+      def func(request, *args, **kwargs):
+        from django.urls import reverse
+        url1 = reverse('i1')                            # auv/
+        url2 = reverse('i2',args = (1,2,))              # yug/1/2/
+        url3 = reverse('i3', kwargs={'pid':1,"nid":9}   # buy/1/9/
+
+      xxx.html
+        {% url "i1" %}                  # auv/
+        {% url "i2" 1 2 %}              # yug/1/2/
+        {% url "i3" nid=3 pid=4 %}      # buy/3/4/
+
+
+
+        注：当前的url 获取
+        request.path_info
+
+    5. 路由分发
+
 
 二：视图 views
     1.
