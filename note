@@ -81,3 +81,7 @@
     models.tb.objects.filter(id=1)
     id>1
     models.tb.objects.filter(id_lt=1)
+
+    创建类
+    1、根据类自动创建数据库表
+    2、根据类对数据库表中的数据进行各种操作
